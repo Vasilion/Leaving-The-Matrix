@@ -6,9 +6,8 @@ export interface PortfolioHolding {
   shares: number;
   avgCost: number;
   currentPrice?: number;
+  previousClose?: number;
   currentValue?: number;
-  change?: number;
-  changePercent?: number;
   currentYield?: number;
   averageYield?: number;
   lastUpdated?: string;
@@ -85,8 +84,7 @@ function createPortfolioStore() {
           quotes: Array<{
             symbol: string;
             price: number;
-            change: number;
-            changePercent: number;
+            previousClose?: number;
             currentYield?: number;
             averageYield?: number;
           }>;
@@ -125,9 +123,8 @@ function createPortfolioStore() {
             return {
               ...holding,
               currentPrice: quote.price,
+              previousClose: quote.previousClose,
               currentValue: quote.price * holding.shares,
-              change: quote.change,
-              changePercent: quote.changePercent,
               currentYield: quote.currentYield,
               averageYield: yieldOnCost, // Yield on cost based on purchase price
               lastUpdated: new Date().toISOString(),

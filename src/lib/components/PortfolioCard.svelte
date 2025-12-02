@@ -50,21 +50,6 @@
 				{holding.currentPrice ? formatCurrency(holding.currentPrice) : 'Loading...'}
 			</span>
 		</div>
-		{#if holding.changePercent != null && !isNaN(holding.changePercent)}
-			<div class="flex items-center gap-2 text-sm {holding.changePercent >= 0 ? 'text-cyan-accent' : 'text-red-400'}">
-				{#if holding.changePercent >= 0}
-					<TrendingUp class="w-4 h-4" />
-				{:else}
-					<TrendingDown class="w-4 h-4" />
-				{/if}
-				<span>{holding.changePercent >= 0 ? '+' : ''}{holding.changePercent.toFixed(2)}%</span>
-				{#if holding.change != null && !isNaN(holding.change)}
-					<span class="text-gray-400">
-						({holding.change >= 0 ? '+' : ''}{formatCurrency(holding.change)})
-					</span>
-				{/if}
-			</div>
-		{/if}
 	</div>
 	
 	<div class="mb-4">
