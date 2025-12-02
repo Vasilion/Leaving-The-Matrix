@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-gradient-to-br from-[#0f0f1a] to-[#1a1a2e] text-white min-h-screen;
+		font-family: 'Inter', system-ui, sans-serif;
+	}
+}
+
+@layer utilities {
+	.glass {
+		@apply backdrop-blur-[12px] bg-white/5 border border-white/10;
+	}
+	
+	.glass-hover {
+		@apply transition-all duration-300 hover:scale-[1.02] hover:border-purple-accent/50 hover:shadow-glow-purple;
+	}
+	
+	.card-float {
+		@apply shadow-float transition-transform duration-300;
+	}
+	
+	.text-gradient-purple {
+		@apply bg-gradient-to-r from-purple-accent to-cyan-accent bg-clip-text text-transparent;
+	}
+	
+	.btn-primary {
+		@apply px-6 py-3 rounded-xl bg-gradient-to-r from-purple-accent to-cyan-accent text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-glow-cyan;
+	}
+	
+	.btn-secondary {
+		@apply px-6 py-3 rounded-xl glass border-purple-accent/30 text-purple-accent font-semibold transition-all duration-300 hover:scale-105 hover:border-purple-accent hover:shadow-glow-purple;
+	}
+}
+
