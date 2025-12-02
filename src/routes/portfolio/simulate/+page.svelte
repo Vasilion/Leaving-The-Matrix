@@ -79,16 +79,6 @@
 		const monthlyReturn = Math.pow(1 + annualReturn, 1/12) - 1;
 		const monthlyYield = annualYield / 12; // Monthly dividend yield
 		
-		// Debug logging
-		console.log('Portfolio Yield:', portfolioYield, '%');
-		console.log('Annual Yield (decimal):', annualYield);
-		console.log('Monthly Yield (decimal):', monthlyYield);
-		console.log('Holdings with yields:', holdings.map(h => ({ 
-			ticker: h.ticker, 
-			yield: h.currentYield,
-			value: h.currentValue || h.shares * h.avgCost
-		})));
-		
 		let runningValue = currentValue;
 		let totalDividends = 0;
 		const monthlyBreakdown = [];

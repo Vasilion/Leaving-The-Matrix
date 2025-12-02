@@ -67,7 +67,6 @@ function createPortfolioStore() {
 
       try {
         const symbols = holdings.map((h) => h.ticker.toUpperCase());
-        console.log("Fetching prices for symbols:", symbols);
 
         const response = await fetch("/api/quotes", {
           method: "POST",
@@ -76,10 +75,7 @@ function createPortfolioStore() {
         });
 
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error("API error:", response.status, errorData);
           if (response.status === 404) {
-            console.warn("API returned 404, but continuing with empty quotes");
             return holdings;
           }
           throw new Error(`Failed to fetch prices: ${response.status}`);
@@ -99,14 +95,8 @@ function createPortfolioStore() {
         const { quotes } = responseData;
 
         if (!quotes || quotes.length === 0) {
-          console.warn("No quotes returned from API");
           return holdings;
         }
-
-        console.log(
-          "Received quotes:",
-          quotes.map((q) => q.symbol)
-        );
 
         const priceMap = new Map(
           quotes.map((q) => [q.symbol.toUpperCase(), q])
@@ -119,13 +109,19 @@ function createPortfolioStore() {
             // Calculate yield on cost (average yield based on purchase price)
             // This is the dividend yield based on what the user paid, not current price
             let yieldOnCost = 0;
-            if (quote.currentYield && quote.currentYield > 0 && holding.avgCost > 0 && quote.price > 0) {
+            if (
+              quote.currentYield &&
+              quote.currentYield > 0 &&
+              holding.avgCost > 0 &&
+              quote.price > 0
+            ) {
               // Yield on cost = (Current dividend yield * Current price) / Average cost
               // This gives you the yield percentage based on your purchase price
-              const annualDividendPerShare = (quote.currentYield / 100) * quote.price;
+              const annualDividendPerShare =
+                (quote.currentYield / 100) * quote.price;
               yieldOnCost = (annualDividendPerShare / holding.avgCost) * 100;
             }
-            
+
             return {
               ...holding,
               currentPrice: quote.price,
@@ -136,8 +132,6 @@ function createPortfolioStore() {
               averageYield: yieldOnCost, // Yield on cost based on purchase price
               lastUpdated: new Date().toISOString(),
             };
-          } else {
-            console.warn(`No quote found for ${holding.ticker}`);
           }
           return holding;
         });
@@ -148,7 +142,6 @@ function createPortfolioStore() {
         set(updated);
         return updated;
       } catch (error) {
-        console.error("Error updating prices:", error);
         return holdings;
       }
     },

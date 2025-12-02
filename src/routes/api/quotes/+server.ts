@@ -17,14 +17,12 @@ export const GET: RequestHandler = async ({ url }) => {
 		});
 		
 		if (!response.ok) {
-			console.error('Yahoo Finance API error:', response.status, response.statusText);
 			return json({ error: `API returned ${response.status}` }, { status: response.status });
 		}
 		
 		const data = await response.json();
 		
 		if (!data.chart || !data.chart.result) {
-			console.error('Unexpected API response structure:', data);
 			return json({ error: 'Invalid API response' }, { status: 500 });
 		}
 		
@@ -56,7 +54,6 @@ export const GET: RequestHandler = async ({ url }) => {
 		
 		return json({ quotes });
 	} catch (error: any) {
-		console.error('Error fetching quotes:', error);
 		return json({ 
 			error: 'Failed to fetch quotes', 
 			details: error.message 
@@ -85,21 +82,18 @@ export const POST: RequestHandler = async ({ request }) => {
 				});
 				
 				if (!response.ok) {
-					console.warn(`Failed to fetch ${symbol}: ${response.status}`);
 					continue;
 				}
-				
+
 				const data = await response.json();
-				
+
 				if (!data.chart || !data.chart.result) {
-					console.warn(`No data for ${symbol}`);
 					continue;
 				}
-				
+
 				const result = Array.isArray(data.chart.result) ? data.chart.result[0] : data.chart.result;
-				
+
 				if (!result || !result.meta) {
-					console.warn(`No meta data for ${symbol}`);
 					continue;
 				}
 				
@@ -138,16 +132,12 @@ export const POST: RequestHandler = async ({ request }) => {
 				
 				await new Promise(resolve => setTimeout(resolve, 100));
 			} catch (error: any) {
-				console.error(`Error fetching ${symbol}:`, error.message);
 				continue;
 			}
 		}
 		
-		console.log(`Fetched ${quotes.length}/${symbols.length} quotes`);
-		
 		return json({ quotes });
 	} catch (error: any) {
-		console.error('Error fetching quotes:', error);
 		return json({ 
 			error: 'Failed to fetch quotes', 
 			details: error.message 

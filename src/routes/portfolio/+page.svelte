@@ -34,7 +34,7 @@
 			const currentHoldings = [...holdings];
 			await portfolio.updatePrices(currentHoldings);
 		} catch (error) {
-			console.error('Error refreshing prices:', error);
+			// Error handled silently
 		} finally {
 			refreshing = false;
 		}
@@ -91,7 +91,6 @@
 				await refreshPrices();
 			}
 		} catch (error) {
-			console.error('Error importing portfolio:', error);
 			alert('Error importing portfolio. Please try again.');
 		} finally {
 			importing = false;

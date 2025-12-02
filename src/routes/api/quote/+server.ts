@@ -19,7 +19,6 @@ export const GET: RequestHandler = async ({ url }) => {
 		);
 		
 		if (!response.ok) {
-			console.error('Yahoo Finance API error:', response.status, response.statusText);
 			return json({ error: `API returned ${response.status}` }, { status: response.status });
 		}
 		
@@ -68,7 +67,6 @@ export const GET: RequestHandler = async ({ url }) => {
 		
 		return json(quote);
 	} catch (error: any) {
-		console.error('Error fetching quote:', error);
 		return json({ 
 			error: 'Failed to fetch quote',
 			details: error.message 
