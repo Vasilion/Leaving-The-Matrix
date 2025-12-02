@@ -9,6 +9,8 @@ export interface PortfolioHolding {
   currentValue?: number;
   change?: number;
   changePercent?: number;
+  currentYield?: number;
+  averageYield?: number;
   lastUpdated?: string;
 }
 
@@ -89,6 +91,8 @@ function createPortfolioStore() {
             price: number;
             change: number;
             changePercent: number;
+            currentYield?: number;
+            averageYield?: number;
           }>;
         };
 
@@ -112,12 +116,24 @@ function createPortfolioStore() {
           const tickerUpper = holding.ticker.toUpperCase();
           const quote = priceMap.get(tickerUpper);
           if (quote) {
+            // Calculate yield on cost (average yield based on purchase price)
+            // This is the dividend yield based on what the user paid, not current price
+            let yieldOnCost = 0;
+            if (quote.currentYield && quote.currentYield > 0 && holding.avgCost > 0 && quote.price > 0) {
+              // Yield on cost = (Current dividend yield * Current price) / Average cost
+              // This gives you the yield percentage based on your purchase price
+              const annualDividendPerShare = (quote.currentYield / 100) * quote.price;
+              yieldOnCost = (annualDividendPerShare / holding.avgCost) * 100;
+            }
+            
             return {
               ...holding,
               currentPrice: quote.price,
               currentValue: quote.price * holding.shares,
               change: quote.change,
               changePercent: quote.changePercent,
+              currentYield: quote.currentYield,
+              averageYield: yieldOnCost, // Yield on cost based on purchase price
               lastUpdated: new Date().toISOString(),
             };
           } else {

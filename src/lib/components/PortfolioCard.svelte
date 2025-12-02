@@ -100,6 +100,23 @@
 		</div>
 	</div>
 	
+	{#if (holding.currentYield != null && holding.currentYield > 0) || (holding.averageYield != null && holding.averageYield !== 0)}
+		<div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10 mt-4">
+			{#if holding.currentYield != null && holding.currentYield > 0}
+				<div>
+					<p class="text-xs text-gray-400 mb-1">Current Yield</p>
+					<p class="font-semibold text-cyan-accent">{holding.currentYield.toFixed(2)}%</p>
+				</div>
+			{/if}
+			{#if holding.averageYield != null && holding.averageYield > 0}
+				<div>
+					<p class="text-xs text-gray-400 mb-1">Yield on Cost</p>
+					<p class="font-semibold text-purple-accent">{holding.averageYield.toFixed(2)}%</p>
+				</div>
+			{/if}
+		</div>
+	{/if}
+	
 	{#if holding.lastUpdated}
 		<p class="text-xs text-gray-500 mt-2">Updated: {new Date(holding.lastUpdated).toLocaleTimeString()}</p>
 	{/if}

@@ -128,6 +128,15 @@
 					<RefreshCw class="w-5 h-5 {refreshing ? 'animate-spin' : ''}" />
 					Refresh
 				</button>
+				{#if holdings.length > 0}
+					<a
+						href="/portfolio/simulate"
+						class="btn-secondary inline-flex items-center gap-2"
+					>
+						<TrendingUp class="w-5 h-5" />
+						Simulate Returns
+					</a>
+				{/if}
 				<button
 					onclick={() => showAddModal = true}
 					class="btn-primary inline-flex items-center gap-2"
@@ -147,7 +156,7 @@
 					<span class="text-sm text-gray-400">Total Invested</span>
 				</div>
 				<p class="text-3xl font-bold">
-					${(totalInvested / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+					${(totalInvested).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 				</p>
 			</div>
 			
@@ -159,7 +168,7 @@
 					<span class="text-sm text-gray-400">Current Value</span>
 				</div>
 				<p class="text-3xl font-bold">
-					${(totalValue / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+					${(totalValue).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 				</p>
 			</div>
 			

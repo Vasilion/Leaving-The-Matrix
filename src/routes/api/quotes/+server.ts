@@ -109,12 +109,29 @@ export const POST: RequestHandler = async ({ request }) => {
 				const change = currentPrice - previousClose;
 				const changePercent = previousClose > 0 ? (change / previousClose) * 100 : 0;
 				
+				let dividendYield = 0;
+				if (meta.dividendYield != null) {
+					dividendYield = meta.dividendYield * 100;
+				} else if (meta.trailingAnnualDividendYield != null) {
+					dividendYield = meta.trailingAnnualDividendYield * 100;
+				} else if (meta.dividendRate != null && currentPrice > 0) {
+					dividendYield = (meta.dividendRate / currentPrice) * 100;
+				}
+				
+				// averageYield will be calculated on the client side based on user's average cost
+				// This is "yield on cost" - the dividend yield based on purchase price
+				// For now, we'll just use the same dividend yield
+				// The client will calculate yield on cost when it has the avgCost data
+				const averageYield = dividendYield; // Will be recalculated as yield on cost
+				
 				quotes.push({
 					symbol: (meta.symbol || symbol).toUpperCase(),
 					name: meta.longName || meta.shortName || symbol || 'Unknown',
 					price: currentPrice,
 					change: change,
 					changePercent: changePercent,
+					currentYield: dividendYield,
+					averageYield: averageYield,
 					currency: meta.currency || 'USD',
 					exchange: meta.exchangeName || meta.fullExchangeName || 'N/A'
 				});
