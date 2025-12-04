@@ -1,12 +1,20 @@
 <script lang="ts">
 	import { Github, Twitter, Linkedin, Mail } from 'lucide-svelte';
+	import logo from '../../assets/imgs/logo.png';
 </script>
 
 <footer class="glass border-t border-white/10 mt-auto">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 			<div>
-				<h3 class="text-xl font-bold text-gradient-purple mb-4">Leaving The Matrix</h3>
+				<a href="/" class="inline-block mb-4">
+					<img 
+						src={logo} 
+						alt="Leaving The Matrix" 
+						class="h-12 w-auto"
+						loading="lazy"
+					/>
+				</a>
 				<p class="text-gray-400 text-sm">
 					Premium VC investment platform for tracking portfolios, calculating returns, and building community.
 				</p>

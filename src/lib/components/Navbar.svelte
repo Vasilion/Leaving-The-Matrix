@@ -2,6 +2,7 @@
 	import { Menu, X, TrendingUp } from 'lucide-svelte';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import logo from '../../assets/imgs/logo.png';
 	
 	let mobileMenuOpen = $state(false);
 	let currentPath = $state('');
@@ -23,9 +24,13 @@
 <nav class="glass border-b border-white/10 sticky top-0 z-40">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
-			<a href="/" class="flex items-center gap-2 text-xl font-bold text-gradient-purple">
-				<TrendingUp class="w-6 h-6" />
-				<span>LTM</span>
+			<a href="/" class="flex items-center gap-2">
+				<img 
+					src={logo} 
+					alt="Leaving The Matrix" 
+					class="h-14 w-auto"
+					loading="eager"
+				/>
 			</a>
 			
 			<div class="hidden md:flex items-center gap-8">
