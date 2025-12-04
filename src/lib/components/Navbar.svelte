@@ -11,7 +11,6 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/portfolio', label: 'Portfolio' },
 		{ href: '/calculators', label: 'Calculators' },
-		{ href: '/forum', label: 'Forum' },
 		{ href: '/education', label: 'Education' },
 		{ href: '/services', label: 'Services' }
 	];

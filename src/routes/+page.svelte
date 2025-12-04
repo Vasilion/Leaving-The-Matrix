@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowRight, TrendingUp, Calculator, BookOpen, MessageSquare, Sparkles } from 'lucide-svelte';
+	import { ArrowRight, TrendingUp, Calculator, BookOpen, Sparkles } from 'lucide-svelte';
 	import QuickAccessCard from '$lib/components/QuickAccessCard.svelte';
 	import NewsCard from '$lib/components/NewsCard.svelte';
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
@@ -126,18 +126,18 @@
 					color="cyan"
 				/>
 				<QuickAccessCard
-					title="Forum"
-					description="Join discussions"
-					icon={MessageSquare}
-					href="/forum"
-					color="purple"
-				/>
-				<QuickAccessCard
 					title="Education"
 					description="Learn VC fundamentals"
 					icon={BookOpen}
 					href="/education"
 					color="cyan"
+				/>
+				<QuickAccessCard
+					title="Services"
+					description="Stock picks & trading"
+					icon={Sparkles}
+					href="/services"
+					color="purple"
 				/>
 			</div>
 		</div>

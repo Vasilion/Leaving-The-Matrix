@@ -25,7 +25,6 @@
 				<ul class="space-y-2 text-sm text-gray-400">
 					<li><a href="/portfolio" class="hover:text-cyan-accent transition-colors">Portfolio Tracker</a></li>
 					<li><a href="/calculators" class="hover:text-cyan-accent transition-colors">Calculators</a></li>
-					<li><a href="/forum" class="hover:text-cyan-accent transition-colors">Forum</a></li>
 					<li><a href="/education" class="hover:text-cyan-accent transition-colors">Education</a></li>
 				</ul>
 			</div>

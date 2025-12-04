@@ -53,9 +53,9 @@
 
 <svelte:head>
 	<title>Leaving The Matrix - VC Investment Platform</title>
-	<meta name="description" content="Premium VC investment platform with portfolio tracking, calculators, and community forum" />
+	<meta name="description" content="Premium VC investment platform with portfolio tracking, calculators, and trading education" />
 	<meta property="og:title" content="Leaving The Matrix - VC Investment Platform" />
-	<meta property="og:description" content="Premium VC investment platform with portfolio tracking, calculators, and community forum" />
+	<meta property="og:description" content="Premium VC investment platform with portfolio tracking, calculators, and trading education" />
 	<meta property="og:type" content="website" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
