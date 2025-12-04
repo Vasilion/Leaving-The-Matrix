@@ -60,7 +60,7 @@
 		</div>
 		
 		<div class="mt-8 pt-8 border-t border-white/10 text-center text-sm text-gray-400">
-			<p>&copy; 2024 Leaving The Matrix. All rights reserved.</p>
+			<p>&copy; 2025 <a href="https://www.unycross.com/" target="_blank" rel="noopener noreferrer" class="text-cyan-accent hover:text-purple-accent transition-colors">Unycross LLC</a>. All rights reserved.</p>
 		</div>
 	</div>
 </footer>
