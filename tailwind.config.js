@@ -5,14 +5,14 @@ export default {
 		extend: {
 			colors: {
 				purple: {
-					accent: '#9d4edd'
+					accent: '#a855f7'
 				},
 				cyan: {
-					accent: '#00ffc6'
+					accent: '#00d9ff'
 				},
 				dark: {
-					bg: '#0f0f1a',
-					bg2: '#1a1a2e'
+					bg: '#0a0a0f',
+					bg2: '#0f0f1a'
 				}
 			},
 			fontFamily: {
@@ -22,9 +22,9 @@ export default {
 				glass: '12px'
 			},
 			boxShadow: {
-				'glow-purple': '0 0 20px rgba(157, 78, 221, 0.3)',
-				'glow-cyan': '0 0 20px rgba(0, 255, 198, 0.3)',
-				'float': '0 10px 40px rgba(0, 0, 0, 0.3)'
+				'glow-purple': '0 0 25px rgba(168, 85, 247, 0.4)',
+				'glow-cyan': '0 0 30px rgba(0, 217, 255, 0.5)',
+				'float': '0 10px 40px rgba(0, 0, 0, 0.4)'
 			}
 		}
 	},

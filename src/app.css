@@ -5,7 +5,7 @@
 
 @layer base {
 	body {
-		@apply bg-gradient-to-br from-[#0f0f1a] to-[#1a1a2e] text-white min-h-screen;
+		@apply bg-gradient-to-br from-[#0a0a0f] to-[#0f0f1a] text-white min-h-screen;
 		font-family: 'Inter', system-ui, sans-serif;
 	}
 }
@@ -16,7 +16,7 @@
 	}
 	
 	.glass-hover {
-		@apply transition-all duration-300 hover:scale-[1.02] hover:border-purple-accent/50 hover:shadow-glow-purple;
+		@apply transition-all duration-300 hover:scale-[1.02] hover:border-cyan-accent/50 hover:shadow-glow-cyan;
 	}
 	
 	.card-float {

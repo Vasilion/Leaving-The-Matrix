@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { ArrowRight, TrendingUp, Calculator, BookOpen, Sparkles } from 'lucide-svelte';
 	import QuickAccessCard from '$lib/components/QuickAccessCard.svelte';
+	import banner from '../assets/imgs/banner.png';
 	
 	let particles: { x: number; y: number; vx: number; vy: number }[] = $state([]);
 	
@@ -40,23 +41,35 @@
 		{/each}
 	</div>
 	
-	<section class="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-		<div class="max-w-7xl mx-auto text-center">
-			<h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-				<span class="text-gradient-purple">Leaving The Matrix</span>
-			</h1>
-			<p class="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-				Track your stock portfolio, learn trading strategies, and access premium stock picks. Master the markets with real-time data and expert guidance.
-			</p>
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/portfolio" class="btn-primary inline-flex items-center gap-2">
-					View Portfolio
-					<ArrowRight class="w-5 h-5" />
-				</a>
-				<a href="/services" class="btn-secondary inline-flex items-center gap-2">
-					Explore Services
-					<ArrowRight class="w-5 h-5" />
-				</a>
+	<section class="relative px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-6 sm:pb-8 overflow-hidden">
+		<div class="max-w-7xl mx-auto">
+			<div class="flex flex-col gap-8 items-center">
+				<div class="w-full max-w-4xl relative">
+					<div class="relative rounded-2xl overflow-hidden glass border border-white/10">
+						<img
+							src={banner}
+							alt="Leaving The Matrix"
+							class="w-full h-auto object-cover max-h-[400px]"
+							loading="eager"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-dark-bg/60 via-transparent to-transparent pointer-events-none"></div>
+					</div>
+				</div>
+				<div class="text-center max-w-3xl mx-auto">
+					<p class="text-xl sm:text-2xl text-gray-300 mb-8">
+						Track your stock portfolio, learn trading strategies, and access premium stock picks. Master the markets with real-time data and expert guidance.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a href="/portfolio" class="btn-primary inline-flex items-center justify-center gap-2">
+							View Portfolio
+							<ArrowRight class="w-5 h-5" />
+						</a>
+						<a href="/services" class="btn-secondary inline-flex items-center justify-center gap-2">
+							Explore Services
+							<ArrowRight class="w-5 h-5" />
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
