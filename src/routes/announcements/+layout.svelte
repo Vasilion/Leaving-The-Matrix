@@ -32,17 +32,14 @@
 						{/if}
 					</div>
 					<p class="text-sm text-gray-400">
-						{#if discordStatus.loading}
-							Loading...
-						{:else}
-							{discordStatus.members.toLocaleString()} members
-						{/if}
+						Leaving The Matrix is a community of like minded people looking to supplement or replace their income through the power of financial markets
 					</p>
 				</div>
 			</div>
 			<a
-				href="#"
+				href="https://mee6.xyz/en/m/1384673721599397948"
 				target="_blank"
+				rel="noopener noreferrer"
 				class="btn-primary whitespace-nowrap"
 			>
 				Join Discord
