@@ -105,8 +105,8 @@
 
 <div class="px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 	<div class="max-w-7xl mx-auto">
-		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
-			<div>
+		<div class="mb-8">
+			<div class="mb-6">
 				<h1 class="text-4xl sm:text-5xl font-bold mb-2">Portfolio Tracker</h1>
 				<p class="text-gray-400">Monitor your investments with real-time market data</p>
 			</div>
@@ -117,7 +117,7 @@
 					class="btn-secondary inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					<Download class="w-5 h-5 {importing ? 'animate-spin' : ''}" />
-					{importing ? 'Importing...' : 'Import Portfolio'}
+					{importing ? 'Importing...' : 'Import Luke\'s Income Portfolio'}
 				</button>
 				<button
 					onclick={refreshPrices}
