@@ -49,7 +49,7 @@
 				<a href="/announcements" class="text-sm text-gray-400 hover:text-cyan-accent transition-colors">
 					Announcements
 				</a>
-				<a href="/services" class="btn-primary text-sm py-2 px-4">Upgrade</a>
+				<a href="/services" class="btn-primary text-sm py-2 px-4">Leave The Matrix</a>
 			</div>
 			
 			<button
@@ -82,7 +82,7 @@
 				<a href="/announcements" class="block text-gray-300 hover:text-cyan-accent transition-colors">
 					Announcements
 				</a>
-				<a href="/services" class="btn-primary text-sm py-2 px-4 inline-block">Upgrade</a>
+				<a href="/services" class="btn-primary text-sm py-2 px-4 inline-block">Leave The Matrix</a>
 			</div>
 		</div>
 	{/if}
