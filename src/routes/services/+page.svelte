@@ -1,138 +1,64 @@
 <script lang="ts">
-	import { Sparkles, TrendingUp, FileSearch, Users, Zap, Shield } from 'lucide-svelte';
-	
-	const services = [
-		{
-			id: 1,
-			title: 'Deal Sourcing',
-			description: 'Access exclusive investment opportunities from our curated network of startups and founders.',
-			icon: Sparkles,
-			features: ['Curated deal flow', 'Early access to rounds', 'Direct founder intros']
-		},
-		{
-			id: 2,
-			title: 'Due Diligence',
-			description: 'Comprehensive analysis and risk assessment for your investment decisions.',
-			icon: FileSearch,
-			features: ['Financial analysis', 'Market research', 'Legal review']
-		},
-		{
-			id: 3,
-			title: 'Portfolio Management',
-			description: 'Track, analyze, and optimize your investment portfolio with advanced tools.',
-			icon: TrendingUp,
-			features: ['Real-time tracking', 'Performance analytics', 'Risk assessment']
-		},
-		{
-			id: 4,
-			title: 'LP Relations',
-			description: 'Streamline communication and reporting with your Limited Partners.',
-			icon: Users,
-			features: ['Automated reporting', 'Quarterly updates', 'LP portal access']
-		},
-		{
-			id: 5,
-			title: 'Deal Structuring',
-			description: 'Expert guidance on term sheets, valuations, and deal negotiations.',
-			icon: Zap,
-			features: ['Term sheet review', 'Valuation analysis', 'Negotiation support']
-		},
-		{
-			id: 6,
-			title: 'Compliance & Legal',
-			description: 'Stay compliant with regulatory requirements and legal best practices.',
-			icon: Shield,
-			features: ['Regulatory compliance', 'Legal documentation', 'Risk management']
-		}
-	];
+	const subscriptionUrl = 'https://mee6.xyz/en/m/1384673721599397948';
 	
 	const pricingTiers = [
 		{
-			name: 'Starter',
-			price: '$99',
+			name: 'STOCK PICKS STANDARD',
+			price: '$29.99',
 			period: '/month',
-			description: 'Perfect for individual investors',
+			description: 'My standard service is designed to provide comprehensive insights and actionable guidance for traders and investors focusing on swing trades and long-term investment opportunities in the stock market. I deliver meticulously researched signals and execution strategies for stocks identified as prime candidates based on rigorous analysis and market trends.',
 			features: [
-				'Portfolio tracking (up to 10 holdings)',
-				'Basic calculators',
-				'Forum access',
-				'Email support'
-			],
-			popular: false
+				'ETF Portfolio',
+				'Long Term Picks',
+				'Swing Trades',
+				'Day Trades',
+				'Education',
+				'Chat',
+				'Live Streams'
+			]
 		},
 		{
-			name: 'Professional',
-			price: '$299',
+			name: 'STOCK PICKS PRO',
+			price: '$69.99',
 			period: '/month',
-			description: 'For active VCs and fund managers',
+			description: 'My standard service is designed to provide comprehensive insights and actionable guidance for traders and investors focusing on swing trades and long-term investment opportunities in the stock market. I deliver meticulously researched signals and execution strategies for stocks identified as prime candidates based on rigorous analysis and market trends.',
+			premiumDescription: 'With this premium service, you\'ll receive direct communication and advice from me, the founder of Unycross LLC. I\'ll be available to answer your questions, provide guidance, and help you make informed decisions.',
 			features: [
-				'Unlimited portfolio tracking',
-				'Advanced calculators',
-				'Deal sourcing access',
-				'Due diligence tools',
-				'Priority support',
-				'LP reporting'
+				'ETF Portfolio',
+				'Long Term Picks',
+				'Swing Trades',
+				'Day Trades',
+				'Education',
+				'Chat',
+				'Live Streams',
+				'1 on 1 Help',
+				'Portfolio Assessment',
+				'Options'
 			],
 			popular: true
-		},
-		{
-			name: 'Enterprise',
-			price: 'Custom',
-			period: '',
-			description: 'For funds and institutions',
-			features: [
-				'Everything in Professional',
-				'Custom integrations',
-				'Dedicated account manager',
-				'White-label options',
-				'API access',
-				'Custom reporting'
-			],
-			popular: false
 		}
 	];
+	
+	function handleSubscribe() {
+		window.open(subscriptionUrl, '_blank');
+	}
 </script>
 
 <svelte:head>
 	<title>Services - Leaving The Matrix</title>
-	<meta name="description" content="Premium VC services including deal sourcing, due diligence, and portfolio management" />
+	<meta name="description" content="Stock picks and trading education services - Standard and Pro tiers available" />
 </svelte:head>
 
 <div class="px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 	<div class="max-w-7xl mx-auto">
 		<div class="text-center mb-16">
-			<h1 class="text-4xl sm:text-5xl font-bold mb-4">Our Services</h1>
+			<h1 class="text-4xl sm:text-5xl font-bold mb-4">Stock Picks Services</h1>
 			<p class="text-xl text-gray-400 max-w-2xl mx-auto">
-				Comprehensive tools and services to power your VC investment strategy
+				Comprehensive trading insights and actionable guidance for traders and investors
 			</p>
 		</div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-			{#each services as service}
-				<div class="glass rounded-2xl p-6 card-float glass-hover">
-					<div class="p-3 rounded-xl bg-purple-accent/20 text-purple-accent w-fit mb-4">
-						<svelte:component this={service.icon} class="w-6 h-6" />
-					</div>
-					<h3 class="text-xl font-bold mb-2">{service.title}</h3>
-					<p class="text-gray-400 text-sm mb-4">{service.description}</p>
-					<ul class="space-y-2">
-						{#each service.features as feature}
-							<li class="text-sm text-gray-300 flex items-center gap-2">
-								<div class="w-1.5 h-1.5 rounded-full bg-cyan-accent"></div>
-								{feature}
-							</li>
-						{/each}
-					</ul>
-				</div>
-			{/each}
-		</div>
-		
-		<div class="text-center mb-12">
-			<h2 class="text-3xl sm:text-4xl font-bold mb-4">Pricing</h2>
-			<p class="text-gray-400">Choose the plan that fits your needs</p>
-		</div>
-		
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
 			{#each pricingTiers as tier}
 				<div
 					class="glass rounded-2xl p-8 card-float glass-hover relative {tier.popular
@@ -146,28 +72,41 @@
 							Most Popular
 						</div>
 					{/if}
-					<div class="text-center mb-6">
-						<h3 class="text-2xl font-bold mb-2">{tier.name}</h3>
-						<p class="text-gray-400 text-sm mb-4">{tier.description}</p>
-						<div class="flex items-baseline justify-center gap-1">
+					
+					<div class="mb-6">
+						<h3 class="text-3xl font-bold text-purple-accent mb-4">{tier.name}</h3>
+						<div class="flex items-baseline gap-2 mb-6">
 							<span class="text-4xl font-bold">{tier.price}</span>
-							<span class="text-gray-400">{tier.period}</span>
+							<span class="text-gray-400 text-lg">{tier.period}</span>
 						</div>
+						<p class="text-gray-300 text-sm leading-relaxed mb-4">{tier.description}</p>
+						{#if tier.premiumDescription}
+							<p class="text-gray-300 text-sm leading-relaxed">{tier.premiumDescription}</p>
+						{/if}
 					</div>
-					<ul class="space-y-3 mb-8">
-						{#each tier.features as feature}
-							<li class="text-sm text-gray-300 flex items-start gap-2">
-								<div class="w-1.5 h-1.5 rounded-full bg-cyan-accent mt-1.5 flex-shrink-0"></div>
-								<span>{feature}</span>
-							</li>
-						{/each}
-					</ul>
-					<button class="w-full {tier.popular ? 'btn-primary' : 'btn-secondary'}">
-						Get Started
+					
+					<div class="mb-8">
+						<h4 class="text-cyan-accent font-semibold mb-4">KEY FEATURES:</h4>
+						<ul class="space-y-3">
+							{#each tier.features as feature}
+								<li class="text-gray-300 text-sm flex items-center gap-2">
+									<span class="text-cyan-accent">→</span>
+									{feature}
+								</li>
+							{/each}
+						</ul>
+					</div>
+					
+					<button
+						onclick={handleSubscribe}
+						class="w-full {tier.popular
+							? 'bg-gradient-to-r from-purple-accent to-cyan-accent'
+							: 'bg-purple-accent'} text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity"
+					>
+						Subscribe Now
 					</button>
 				</div>
 			{/each}
 		</div>
 	</div>
 </div>
-
