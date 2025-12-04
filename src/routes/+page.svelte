@@ -2,8 +2,6 @@
 	import { onMount } from 'svelte';
 	import { ArrowRight, TrendingUp, Calculator, BookOpen, Sparkles } from 'lucide-svelte';
 	import QuickAccessCard from '$lib/components/QuickAccessCard.svelte';
-	import NewsCard from '$lib/components/NewsCard.svelte';
-	import ServiceCard from '$lib/components/ServiceCard.svelte';
 	
 	let particles: { x: number; y: number; vx: number; vy: number }[] = $state([]);
 	
@@ -30,50 +28,6 @@
 		}
 	});
 	
-	const latestNews = [
-		{
-			id: 1,
-			title: 'AI Startup Raises $50M Series B',
-			excerpt: 'Revolutionary AI platform secures major funding round led by top-tier VCs',
-			date: '2 hours ago',
-			category: 'Funding'
-		},
-		{
-			id: 2,
-			title: 'New Regulatory Framework for Crypto Investments',
-			excerpt: 'SEC announces updated guidelines affecting venture capital crypto holdings',
-			date: '5 hours ago',
-			category: 'Regulation'
-		},
-		{
-			id: 3,
-			title: 'Biotech Breakthrough: $200M Exit',
-			excerpt: 'Portfolio company achieves successful exit, delivering 10x returns to early investors',
-			date: '1 day ago',
-			category: 'Exit'
-		}
-	];
-	
-	const featuredServices = [
-		{
-			id: 1,
-			title: 'Deal Sourcing',
-			description: 'Access exclusive investment opportunities',
-			icon: Sparkles
-		},
-		{
-			id: 2,
-			title: 'Due Diligence',
-			description: 'Comprehensive analysis and risk assessment',
-			icon: TrendingUp
-		},
-		{
-			id: 3,
-			title: 'Portfolio Management',
-			description: 'Track and optimize your investments',
-			icon: Calculator
-		}
-	];
 </script>
 
 <div class="relative overflow-hidden">
@@ -92,7 +46,7 @@
 				<span class="text-gradient-purple">Leaving The Matrix</span>
 			</h1>
 			<p class="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-				Premium VC investment platform. Track portfolios, calculate returns, and connect with the community.
+				Track your stock portfolio, learn trading strategies, and access premium stock picks. Master the markets with real-time data and expert guidance.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="/portfolio" class="btn-primary inline-flex items-center gap-2">
@@ -127,7 +81,7 @@
 				/>
 				<QuickAccessCard
 					title="Education"
-					description="Learn VC fundamentals"
+					description="Trading strategies & market analysis"
 					icon={BookOpen}
 					href="/education"
 					color="cyan"
@@ -139,28 +93,6 @@
 					href="/services"
 					color="purple"
 				/>
-			</div>
-		</div>
-	</section>
-	
-	<section class="px-4 sm:px-6 lg:px-8 py-16">
-		<div class="max-w-7xl mx-auto">
-			<h2 class="text-3xl font-bold mb-8">Latest Ideas & News</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-				{#each latestNews as news}
-					<NewsCard {...news} />
-				{/each}
-			</div>
-		</div>
-	</section>
-	
-	<section class="px-4 sm:px-6 lg:px-8 py-16">
-		<div class="max-w-7xl mx-auto">
-			<h2 class="text-3xl font-bold mb-8">Featured Services</h2>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-				{#each featuredServices as service}
-					<ServiceCard {...service} />
-				{/each}
 			</div>
 		</div>
 	</section>

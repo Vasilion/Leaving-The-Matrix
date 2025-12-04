@@ -72,7 +72,7 @@
 		href="/services"
 		class="fixed bottom-6 right-6 z-40 btn-primary shadow-glow-cyan animate-pulse hover:animate-none"
 	>
-		Upgrade
+		Leave The Matrix
 	</a>
 </div>
 
