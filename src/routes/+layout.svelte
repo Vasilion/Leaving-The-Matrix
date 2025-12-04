@@ -4,24 +4,49 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { onMount } from 'svelte';
 	
-	let mouseTrail: { x: number; y: number; id: number }[] = $state([]);
+	let mouseTrail: { x: number; y: number; id: number; timestamp: number }[] = $state([]);
 	let trailId = $state(0);
+	let animationFrameId: number | null = null;
 	
 	onMount(() => {
 		if (typeof window !== 'undefined') {
-			const handleMouseMove = (e: MouseEvent) => {
-				if (window.innerWidth > 768) {
-					trailId++;
-					mouseTrail = [...mouseTrail.slice(-4), { x: e.clientX, y: e.clientY, id: trailId }];
-					
-					setTimeout(() => {
-						mouseTrail = mouseTrail.filter((particle) => particle.id !== trailId);
-					}, 1000);
+			let lastUpdate = 0;
+			const throttleDelay = 16;
+			
+			const cleanupOldParticles = () => {
+				const now = Date.now();
+				mouseTrail = mouseTrail.filter((particle) => now - particle.timestamp < 1000);
+				
+				if (mouseTrail.length > 0) {
+					animationFrameId = requestAnimationFrame(cleanupOldParticles);
+				} else {
+					animationFrameId = null;
 				}
 			};
 			
-			window.addEventListener('mousemove', handleMouseMove);
-			return () => window.removeEventListener('mousemove', handleMouseMove);
+			const handleMouseMove = (e: MouseEvent) => {
+				if (window.innerWidth > 768) {
+					const now = Date.now();
+					if (now - lastUpdate < throttleDelay) return;
+					lastUpdate = now;
+					
+					trailId++;
+					const newParticle = { x: e.clientX, y: e.clientY, id: trailId, timestamp: now };
+					mouseTrail = [...mouseTrail.slice(-4), newParticle];
+					
+					if (animationFrameId === null) {
+						animationFrameId = requestAnimationFrame(cleanupOldParticles);
+					}
+				}
+			};
+			
+			window.addEventListener('mousemove', handleMouseMove, { passive: true });
+			return () => {
+				window.removeEventListener('mousemove', handleMouseMove);
+				if (animationFrameId !== null) {
+					cancelAnimationFrame(animationFrameId);
+				}
+			};
 		}
 	});
 </script>
