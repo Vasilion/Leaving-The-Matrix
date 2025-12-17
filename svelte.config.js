@@ -1,11 +1,20 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from "@sveltejs/adapter-static";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: adapter()
-	}
+  preprocess: vitePreprocess(),
+  kit: {
+    adapter: adapter({
+      // default options are shown. On some platforms
+      // these options are not required.
+      pages: "build",
+      assets: "build",
+      fallback: "index.html", // May be needed for SPA routing
+      precompress: false,
+      strict: true,
+    }),
+  },
 };
 
 export default config;
-
