@@ -14,3 +14,12 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+  customHeaders:
+    - pattern: "/api/**"
+      headers:
+        - key: "Cache-Control"
+          value: "no-cache, no-store, must-revalidate"
+redirects:
+  - source: "/api/<*>"
+    target: "/api/<*>"
+    status: "200"
